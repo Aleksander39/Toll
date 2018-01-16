@@ -1,0 +1,69 @@
+subprojects{
+    apply plugin: 'java'
+    repositories {
+        mavenCentral()
+        mavenLocal()
+    }
+    dependencies{
+        testCompile group: 'junit', name: 'junit', version: '4.12'
+        compile group: 'org.springframework', name: 'spring-context', version: '4.3.9.RELEASE'
+
+
+    }
+}
+project(':common'){
+    dependencies {
+        compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.8.7'
+
+
+    }
+
+
+}
+
+project(':server-core'){
+
+    apply plugin: 'java-library-distribution'
+    dependencies {
+        compile project(':common')
+
+
+
+    }
+
+
+
+}
+
+project(':server-ui'){
+    apply plugin: 'java-library-distribution'
+    dependencies {
+        compile project(':common')
+    }
+
+
+}
+project(':tracker-core'){
+    apply plugin: 'java-library-distribution'
+
+    dependencies {
+        compile project(':common')
+        // https://mvnrepository.com/artifact/org.slf4j/slf4j-api
+        compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+        // https://mvnrepository.com/artifact/ch.qos.logback/logback-classic
+        compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.2'
+
+
+    }
+
+}
+project(':tracker-ui'){
+    apply plugin: 'java-library-distribution'
+
+    dependencies {
+        compile project(':common')
+
+    }
+
+
+}
