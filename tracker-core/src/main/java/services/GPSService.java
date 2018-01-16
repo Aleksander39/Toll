@@ -5,10 +5,17 @@ import jdev.dto.PointDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
+
 @Service
 public class GPSService {
     @Autowired
     StorageService storageService;
+
+    @PostConstruct
+    private  void init() throws JsonProcessingException, InterruptedException {
+        storageService.put(getGPS());
+    }
 
     int d = 1;
     int f = 0;
