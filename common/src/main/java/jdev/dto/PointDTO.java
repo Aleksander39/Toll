@@ -11,7 +11,21 @@ public class PointDTO {
     private double azimuth;
     private int instaSpeed;
 
+    public int getInstaSpeed() {
+        return instaSpeed;
+    }
 
+    public void setInstaSpeed(int instaSpeed) {
+        this.instaSpeed = instaSpeed;
+    }
+
+    public double getAzimuth() {
+        return azimuth;
+    }
+
+    public void setAzimuth(double azimuth) {
+        this.azimuth = azimuth;
+    }
 
     public double getLat() {
         return lat;
